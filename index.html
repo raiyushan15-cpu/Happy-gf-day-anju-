@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Anju 🤍</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #fce4ec;
+      background-image: 
+        radial-gradient(#f8bbd0 15%, transparent 16%),
+        radial-gradient(#f8bbd0 15%, transparent 16%);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+      font-family: 'Nunito', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    /* Window Frame Styling */
+    .window-container {
+      width: 100%;
+      max-width: 650px;
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 15px 35px rgba(233, 30, 99, 0.15);
+      border: 3px solid #f48fb1;
+      overflow: hidden;
+      position: relative;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .window-header {
+      background: #f8bbd0;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 2px solid #f48fb1;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ff5252; }
+    .dot-yellow { background: #ff4081; }
+    .dot-green { background: #f48fb1; }
+
+    .window-title {
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 0.9rem;
+      color: #880e4f;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .window-body {
+      padding: 30px 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Floating Hello Kitty Accent */
+    .hk-accent {
+      position: absolute;
+      bottom: 12px;
+      right: 15px;
+      width: 55px;
+      height: auto;
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    /* Paper Note Effect */
+    .paper-card {
+      background: #fff9fb;
+      border: 2px dashed #f48fb1;
+      border-radius: 15px;
+      padding: 30px 25px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      position: relative;
+      transition: all 0.4s ease;
+    }
+
+    /* Typography */
+    .cursive-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.2rem;
+      color: #c2185b;
+      margin-bottom: 15px;
+    }
+
+    .letter-body-text {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #4a148c;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    .btn {
+      background: #f48fb1;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(244, 143, 177, 0.4);
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .btn:hover {
+      background: #ec407a;
+      transform: translateY(-2px);
+    }
+
+    /* Bouquet Graphics (SVG) */
+    .bouquet-svg {
+      width: 140px;
+      height: 140px;
+      margin-bottom: 15px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(3deg); }
+    }
+
+    /* Envelope Grid */
+    .envelopes-grid {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .envelope-card {
+      background: #f8bbd0;
+      border: 2px solid #ec407a;
+      border-radius: 12px;
+      padding: 20px 15px;
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .envelope-card:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 10px 20px rgba(236, 64, 122, 0.2);
+    }
+
+    .envelope-tag {
+      background: white;
+      color: #ad1457;
+      padding: 4px 10px;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .envelope-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #880e4f;
+    }
+
+    /* Final Screen & Heart Animation */
+    .final-heart {
+      font-size: 4.5rem;
+      animation: heartBeat 1.2s infinite;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    @keyframes heartBeat {
+      0% { transform: scale(1); }
+      14% { transform: scale(1.3); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.3); }
+      70% { transform: scale(1); }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="window-container">
+    <!-- Window Header -->
+    <div class="window-header">
+      <div class="dot dot-red"></div>
+      <div class="dot dot-yellow"></div>
+      <div class="dot dot-green"></div>
+      <div class="window-title">for_my_anju.exe</div>
+    </div>
+
+    <!-- Window Body -->
+    <div class="window-body">
+
+      <!-- STEP 1: Lily Bouquet & Initial Question -->
+      <div id="step-1" class="paper-card">
+        <!-- White Lily Bouquet SVG -->
+        <svg class="bouquet-svg" viewBox="0 0 100 100">
+          <path d="M50 85 Q45 60 30 50 Q45 55 50 85 Z" fill="#81c784"/>
+          <path d="M50 85 Q55 60 70 50 Q55 55 50 85 Z" fill="#66bb6a"/>
+          <!-- Lily Flowers -->
+          <g transform="translate(50,35)">
+            <path d="M0,0 Q-15,-20 -5,-30 Q0,-15 0,0 Q0,-15 5,-30 Q15,-20 0,0 Z" fill="#ffffff" stroke="#f8bbd0" stroke-width="1.5"/>
+            <path d="M0,0 Q-25,-5 -30,10 Q-10,5 0,0 Q-10,15 0,20 Q5,5 0,0 Z" fill="#ffffff" stroke="#f8bbd0" stroke-width="1.5"/>
+            <path d="M0,0 Q25,-5 30,10 Q10,5 0,0 Q10,15 0,20 Q-5,5 0,0 Z" fill="#ffffff" stroke="#f8bbd0" stroke-width="1.5"/>
+            <circle cx="0" cy="-5" r="3" fill="#fff176"/>
+          </g>
+          <!-- Ribbon -->
+          <path d="M42 65 Q50 68 58 65 Q55 75 42 65" fill="#f48fb1"/>
+          <path d="M45 66 L38 80 L48 72 Z" fill="#f06292"/>
+          <path d="M55 66 L62 80 L52 72 Z" fill="#f06292"/>
+        </svg>
+        
+        <div class="cursive-text">A bouquet of lilies for Anju... 💐</div>
+        <p style="color: #6a1b9a; margin-bottom: 20px; font-weight: 600;">I made something warm and special just for you. Will you see it?</p>
+        
+        <div class="btn-group">
+          <button class="btn" onclick="goToStep(2)">Yes, please!</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Open-When Letters Selection -->
+      <div id="step-2" class="paper-card hidden">
+        <div class="cursive-text">Open When... 💌</div>
+        <p style="color: #6a1b9a; margin-bottom: 15px; font-size: 0.95rem;">Pick a letter below, Anjana:</p>
+        
+        <div class="envelopes-grid">
+          <div class="envelope-card" onclick="openLetter(1)">
+            <span class="envelope-tag">Open When</span>
+            <div class="envelope-title">you need to remember how deeply loved you are</div>
+          </div>
+          
+          <div class="envelope-card" onclick="openLetter(2)">
+            <span class="envelope-tag">Open On</span>
+            <div class="envelope-title">August 1st 🤍</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3A: Letter 1 -->
+      <div id="letter-1" class="paper-card hidden">
+        <div class="cursive-text">To my dearest Anju,</div>
+        <div class="letter-body-text">
+          I just wanted to take a moment to remind you how much I admire everything about you. The warmth you bring into my life, your kindness, and your gentle spirit mean more to me than words can say.<br><br>
+          Loving you comes naturally, and taking care of your heart will always be my softest priority. Never forget how genuinely treasured you are every single day.
+        </div>
+        <div class="btn-group">
+          <button class="btn" onclick="backToEnvelopes()">Back to Letters</button>
+        </div>
+      </div>
+
+      <!-- STEP 3B: Letter 2 -->
+      <div id="letter-2" class="paper-card hidden">
+        <div class="cursive-text">Happy August 1st 🤍</div>
+        <div class="letter-body-text">
+          Today is all about celebrating you. I want you to go through today simply feeling the warmth of how irreplaceable you are to me.<br><br>
+          You bring a light into my world that nobody else ever could. Today, and every day after, I hope you carry that quiet certainty with you—knowing that you hold the most cherished place in my heart.
+        </div>
+        <div class="btn-group">
+          <button class="btn" onclick="showFinale()">One last thing...</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Animated Finale -->
+      <div id="step-finale" class="paper-card hidden">
+        <div class="final-heart">💖</div>
+        <div class="cursive-text" style="font-size: 3.2rem; margin-top: 10px;">I love you❤️</div>
+      </div>
+
+      <!-- Cute Hello Kitty Accent SVG (Unmentioned Graphic Element) -->
+      <svg class="hk-accent" viewBox="0 0 100 100">
+        <!-- Kitty Head -->
+        <ellipse cx="50" cy="55" rx="32" ry="24" fill="#ffffff" stroke="#4a4a4a" stroke-width="2.5"/>
+        <!-- Ears -->
+        <path d="M22 38 L30 22 L40 34 Z" fill="#ffffff" stroke="#4a4a4a" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M78 38 L70 22 L60 34 Z" fill="#ffffff" stroke="#4a4a4a" stroke-width="2.5" stroke-linejoin="round"/>
+        <!-- Bow -->
+        <circle cx="68" cy="35" r="5" fill="#ff4081" stroke="#4a4a4a" stroke-width="1.5"/>
+        <ellipse cx="60" cy="32" rx="6" ry="4" fill="#ff4081" stroke="#4a4a4a" stroke-width="1.5" transform="rotate(-15 60 32)"/>
+        <ellipse cx="76" cy="38" rx="6" ry="4" fill="#ff4081" stroke="#4a4a4a" stroke-width="1.5" transform="rotate(15 76 38)"/>
+        <!-- Eyes & Nose -->
+        <ellipse cx="40" cy="55" rx="2.5" ry="3.5" fill="#4a4a4a"/>
+        <ellipse cx="60" cy="55" rx="2.5" ry="3.5" fill="#4a4a4a"/>
+        <ellipse cx="50" cy="60" rx="3" ry="2" fill="#ffeb3b" stroke="#4a4a4a" stroke-width="1"/>
+        <!-- Whiskers -->
+        <line x1="20" y1="52" x2="30" y2="54" stroke="#4a4a4a" stroke-width="2"/>
+        <line x1="18" y1="58" x2="29" y2="58" stroke="#4a4a4a" stroke-width="2"/>
+        <line x1="80" y1="52" x2="70" y2="54" stroke="#4a4a4a" stroke-width="2"/>
+        <line x1="82" y1="58" x2="71" y2="58" stroke="#4a4a4a" stroke-width="2"/>
+      </svg>
+
+    </div>
+  </div>
+
+  <script>
+    function hideAll() {
+      document.getElementById('step-1').classList.add('hidden');
+      document.getElementById('step-2').classList.add('hidden');
+      document.getElementById('letter-1').classList.add('hidden');
+      document.getElementById('letter-2').classList.add('hidden');
+      document.getElementById('step-finale').classList.add('hidden');
+    }
+
+    function goToStep(stepNum) {
+      hideAll();
+      document.getElementById('step-' + stepNum).classList.remove('hidden');
+    }
+
+    function openLetter(letterNum) {
+      hideAll();
+      document.getElementById('letter-' + letterNum).classList.remove('hidden');
+    }
+
+    function backToEnvelopes() {
+      hideAll();
+      document.getElementById('step-2').classList.remove('hidden');
+    }
+
+    function showFinale() {
+      hideAll();
+      document.getElementById('step-finale').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
